@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vu.mapper.CourseMapper">
+
+    <resultMap id="BaseResultMap" type="com.vu.domain.Course">
+        <id column="course_id" property="courseId" />
+        <result column="course_name" property="courseName" />
+        <result column="lecturer" property="lecturer" />
+        <result column="study_guide" property="studyGuide" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        course_id, course_name, lecturer, study_guide
+    </sql>
+
+</mapper>
