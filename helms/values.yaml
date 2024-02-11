@@ -1,0 +1,21 @@
+# values.yaml
+
+frontend:
+  image:
+    repository: your-frontend-image-repo
+    tag: latest
+    pullPolicy: IfNotPresent
+  replicas: 3
+
+backend:
+  image:
+    repository: your-backend-image-repo
+    tag: latest
+    pullPolicy: IfNotPresent
+  replicas: 3
+
+ingress:
+  enabled: true
+  hosts:
+    - host: your-domain.com
+      paths: ["/"]
