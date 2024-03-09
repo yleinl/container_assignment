@@ -24,6 +24,18 @@ export const constantRoutes = [
     name: 'CourseList',
     component: () => import('../views/CourseList.vue'),
   },
+  {
+    path: '/register',
+    name: 'Registration',
+    action: 'register',
+    component: () => import('../views/Register.vue'),
+  },
+  {
+    path: '/change',
+    name: 'ChangePassword',
+    action: 'changePassword',
+    component: () => import('../views/Register.vue'),
+  },
 ];
 
 const router = createRouter({

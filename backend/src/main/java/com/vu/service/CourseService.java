@@ -12,5 +12,5 @@ public interface CourseService extends IService<Course> {
      */
     Page<Course> findAllCoursesByPage(Page<Course> page);
 
-    String getCourseNameById(int id);
+    String getCourseNameById(String id);
 }

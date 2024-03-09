@@ -1,6 +1,7 @@
 package com.vu.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.vu.domain.Course;
 import com.vu.domain.User;
 
 import java.util.List;
@@ -9,9 +10,9 @@ public interface UserService extends IService<User> {
 
     /**
      * Login
+     *
      * @param vunetId
-     * @param password
-     * return
+     * @param password return
      */
     User login(String vunetId, String password);
 
@@ -32,11 +33,13 @@ public interface UserService extends IService<User> {
      * @param courseId
      * @return
      */
-    boolean registerCourse(String vunetId, int courseId);
+    boolean registerCourse(String vunetId, String courseId);
 
     /**
      * @param vunetId
      * @return
      */
-    List<String> getCourseName(String vunetId);
+    List<Course> getSelectedCourse(String vunetId);
+
+    boolean changePassword(String vunetId, String oldPassword, String newPassword);
 }

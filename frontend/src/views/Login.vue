@@ -16,6 +16,8 @@
       <div class="btn_group">
 <!--        <button class="btn" @click="reg">Student Register</button>-->
         <button class="btn" @click="Login">Student Login</button>
+        <button class="btn" @click="goToRegister">Register</button>
+        <button class="btn" @click="goToChangePassword">Change Password</button>
       </div>
     </div>
   </div>
@@ -53,6 +55,16 @@ const Login = () => {
       .catch((res) => {
         alert("Wrong id or password ");
       });
+};
+
+
+const goToRegister = () => {
+  router.push({ path: '/register', query: { action: 'register' } });
+
+};
+
+const goToChangePassword = () => {
+  router.push({ path: '/change', query: { action: 'changePassword' } });
 };
 </script>
 <style scoped>

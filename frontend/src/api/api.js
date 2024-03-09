@@ -16,6 +16,14 @@ export const register = async (data) => {
     });
 };
 
+export const changePassword = async (data) => {
+    return request({
+        url: '/user/changePassword',
+        method: 'POST',
+        data,
+    });
+};
+
 export const registerCourse = async (data) => {
     return request({
         url: '/user/registerCourse',

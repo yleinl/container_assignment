@@ -30,7 +30,7 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
     }
 
     @Override
-    public String getCourseNameById(int id) {
+    public String getCourseNameById(String id) {
         LambdaQueryWrapper<Course> lqw = new LambdaQueryWrapper<>();
         lqw.eq(Course::getCourseId, id);
         lqw.last(" limit 1");

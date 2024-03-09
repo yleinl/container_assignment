@@ -39,4 +39,11 @@ public class User {
     @TableField(value = "student_name")
     @ApiModelProperty(value = "student name")
     private String studentName;
+
+    public User(String vunetId, String studentName, String password, String email) {
+        this.vunetId = vunetId;
+        this.studentName = studentName;
+        this.password = password;
+        this.email = email;
+    }
 }

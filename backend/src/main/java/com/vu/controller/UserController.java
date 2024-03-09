@@ -1,5 +1,6 @@
 package com.vu.controller;
 
+import com.vu.domain.Course;
 import com.vu.domain.User;
 import com.vu.model.R;
 import com.vu.service.UserService;
@@ -27,7 +28,8 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public R<String> register(@RequestBody User user) {
+    public R<String> register(@RequestParam String vunetId, @RequestParam String studentName, @RequestParam String password, @RequestParam String email) {
+        User user = new User(vunetId, studentName, password, email);
         boolean success = userService.register(user);
         if (success) {
             return R.ok("User registered successfully");
@@ -36,8 +38,18 @@ public class UserController {
         }
     }
 
+    @PostMapping("/changePassword")
+    public R<String> changePassword(@RequestParam String vunetId, @RequestParam String oldPassword, @RequestParam String newPassword) {
+        boolean success = userService.changePassword(vunetId, oldPassword, newPassword);
+        if (success) {
+            return R.ok("Password changed successfully");
+        } else {
+            return R.fail("Failed to change password");
+        }
+    }
+
     @PostMapping("/registerCourse")
-    public R<String> registerCourse(@RequestParam String vunetId, @RequestParam int courseId) {
+    public R<String> registerCourse(@RequestParam String vunetId, @RequestParam String courseId) {
         boolean success = userService.registerCourse(vunetId, courseId);
         if (success) {
             return R.ok("Course registered successfully");
@@ -47,8 +59,8 @@ public class UserController {
     }
 
     @GetMapping("/getCourseName")
-    public R<List<String>> getCourseName(@RequestParam String vunetId) {
-        List<String> courseNames = userService.getCourseName(vunetId);
-        return R.ok(courseNames);
+    public R<List<Course>> getCourseName(@RequestParam String vunetId) {
+        List<Course> courses = userService.getSelectedCourse(vunetId);
+        return R.ok(courses);
     }
 }
