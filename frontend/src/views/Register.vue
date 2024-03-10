@@ -1,39 +1,39 @@
 <template>
   <div class="main">
-    <div v-if="showRegister"  class="register_box">
+    <div v-if="showRegister" class="register-box">
       <div class="title">Register</div>
       <div class="input">
-        <input type="text" placeholder="Please enter your vunetid" v-model="registerData.vunetId" />
+        <input type="text" placeholder="VUnetID" v-model="registerData.vunetId" />
       </div>
       <div class="input">
-        <input type="text" placeholder="Please enter your student name" v-model="registerData.studentName" />
+        <input type="text" placeholder="Student Name" v-model="registerData.studentName" />
       </div>
       <div class="input">
-        <input type="email" placeholder="Please enter your email" v-model="registerData.email" />
+        <input type="email" placeholder="Email" v-model="registerData.email" />
       </div>
       <div class="input">
-        <input type="password" placeholder="Please enter your password" v-model="registerData.password" />
+        <input type="password" placeholder="Password" v-model="registerData.password" />
       </div>
-      <div class="btn_group">
+      <div class="btn-group">
         <button class="btn" @click="registerAction">Register</button>
       </div>
     </div>
-
-    <div v-if="showChangePassword"  class="change_password_box">
+    <div v-if="showChangePassword" class="change-password-box">
       <div class="title">Change Password</div>
       <div class="input">
-        <input type="text" placeholder="Please enter your vunetid" v-model="changePasswordData.vunetId" />
+        <input type="text" placeholder="VUnetID" v-model="changePasswordData.vunetId" />
       </div>
       <div class="input">
-        <input type="password" placeholder="Please enter your old password" v-model="changePasswordData.oldPassword" />
+        <input type="password" placeholder="Old Password" v-model="changePasswordData.oldPassword" />
       </div>
       <div class="input">
-        <input type="password" placeholder="Please enter your new password" v-model="changePasswordData.newPassword" />
+        <input type="password" placeholder="New Password" v-model="changePasswordData.newPassword" />
       </div>
-      <div class="btn_group">
+      <div class="btn-group">
         <button class="btn" @click="changePasswordAction">Change Password</button>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -89,3 +89,55 @@ const changePasswordAction = () => {
       });
 };
 </script>
+
+<style scoped>
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.register-box {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.input {
+  margin-bottom: 10px;
+}
+
+.input input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn-group {
+  text-align: center;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+</style>

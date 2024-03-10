@@ -2,14 +2,16 @@
   <div class="course-selection">
     <h2>Course Selection</h2>
     <ul>
-      <li v-for="course in courses" :key="course.courseId">
+      <li v-for="course in courses" :key="course.courseId" class="course-item">
         <button @click="selectCourse(course)">
           {{ course.courseName }}
         </button>
       </li>
     </ul>
+    <router-link to="/list" class="view-courses-link">View All Courses</router-link>
   </div>
 </template>
+
 
 <script>
 import { ref, onMounted } from 'vue';
@@ -50,3 +52,27 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.course-selection {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.course-item {
+  margin-bottom: 10px;
+}
+
+.view-courses-link {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.view-courses-link:hover {
+  text-decoration: underline;
+}
+</style>
