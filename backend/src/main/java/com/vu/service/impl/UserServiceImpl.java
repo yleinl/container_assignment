@@ -1,13 +1,10 @@
 package com.vu.service.impl;
 
-import com.alibaba.fastjson.TypeReference;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.vu.Mapper.CourseMapper;
-import com.vu.Mapper.UserMapper;
+import com.vu.mapper.CourseMapper;
+import com.vu.mapper.UserMapper;
 import com.vu.domain.Course;
 import com.vu.domain.User;
 import com.vu.service.CourseService;
@@ -18,7 +15,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 @Slf4j
