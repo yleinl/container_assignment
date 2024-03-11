@@ -3,12 +3,13 @@ kind: PersistentVolume
 metadata:
   name: task-pv-volume
   labels:
-    type: local
+    type: gce
 spec:
   storageClassName: manual
   capacity:
     storage: 2Gi
   accessModes:
     - ReadWriteOnce
-  hostPath:
-    path: "/volume/data"
+  gcePersistentDisk:
+      pdName: gke-cluster-standard-default-pool-eabf32d3-9tc0
+      fsType: ext4
