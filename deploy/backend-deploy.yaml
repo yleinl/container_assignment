@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: deanalysis/web_backend:latest # 替换为您的后端 Docker 镜像
+        image: wujianchun123/backend:latest # 替换为您的后端 Docker 镜像
         ports:
-        - containerPort: 5000
+        - containerPort: 8090
 

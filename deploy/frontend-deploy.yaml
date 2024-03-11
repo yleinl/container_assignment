@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: deanalysis/web_frontend:latest # 替换为您的前端 Docker 镜像
+        image: wujianchun123/frontend:latest # 替换为您的前端 Docker 镜像
         ports:
-        - containerPort: 8000
+        - containerPort: 80
 
