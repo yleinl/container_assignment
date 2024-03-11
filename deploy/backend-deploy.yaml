@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 3 # 根据您的需要修改副本数量
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: deanalysis/web_backend:latest # 替换为您的后端 Docker 镜像
+        ports:
+        - containerPort: 5000
+

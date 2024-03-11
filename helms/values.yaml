@@ -9,7 +9,7 @@ frontend:
 
 backend:
   image:
-    repository: your-backend-image-repo
+    repository: backend_image
     tag: latest
     pullPolicy: IfNotPresent
   replicas: 3
