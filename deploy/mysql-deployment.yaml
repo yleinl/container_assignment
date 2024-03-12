@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deploy
+  labels:
+    name: mysql-deploy
+    app: mysql-gke-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: mysql-pod
+      app: mysql-gke-deployment
+  template:
+    metadata:
+      name: mysql-pod
+      labels:
+        name: mysql-pod
+        app: mysql-gke-deployment
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8.0.32
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: root-password
+          volumeMounts:
+            - name: mysql-initdb
+              mountPath: /docker-entrypoint-initdb.d
+            - name: mysql-data
+              mountPath: "/var/lib/mysql"
+              subPath: "mysql"
+      volumes:
+        - name: mysql-initdb
+          configMap:
+            name: mysql-preload-data-config
+        - name: mysql-data
+          persistentVolumeClaim:
+            claimName: mysql-data-store
