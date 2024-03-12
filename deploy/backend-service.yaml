@@ -9,5 +9,5 @@ spec:
     - protocol: TCP
       port: 5000
       targetPort: 8090
-  type: LoadBalancer
+  type: nodePort
 

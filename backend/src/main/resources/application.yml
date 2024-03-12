@@ -4,7 +4,7 @@ spring:
   server:
     address: 0.0.0.0
   datasource:
-    url: jdbc:mysql://mysql-deploy:3306/container?serverTimezone=Europe/London&useSSL=false
+    url: jdbc:mysql://mysql-deploy:3306/container?serverTimezone=Europe/London&useSSL=false&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
