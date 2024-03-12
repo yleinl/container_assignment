@@ -65,8 +65,8 @@ spec:
        protocol: TCP
        port: 3306
        targetPort: 3306
-       nodePort: 33306
-   type: LoadBalancer
+      #  nodePort: 33306
+   type: ClusterIP
    selector:
      app: mysql-deploy
 

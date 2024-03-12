@@ -9,6 +9,7 @@ mysql deployment
     -f mysql/persistent_volume_claim.yaml  \
     -f mysql/mysql_deploy.yaml
 ```
+Then, go to the pod and init the database
 backend
 ```shell
  kubectl apply -f backend-deploy.yaml \
