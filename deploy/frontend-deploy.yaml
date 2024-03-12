@@ -15,7 +15,7 @@ spec:
       containers:
       - name: frontend
         image: wujianchun123/frontend:latest
-        ImagePullPolicy: Always
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
 

@@ -11,5 +11,6 @@ spec:
   accessModes:
     - ReadWriteOnce
   gcePersistentDisk:
+  # Here need to create at the /vm/disk part in gcp
       pdName: mysql-volume
       fsType: ext4
