@@ -13,13 +13,11 @@
 
  Date: 08/02/2024 21:56:36
 */
-
+CREATE DATABASE IF NOT EXISTS container;
+using container;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
--- ----------------------------
--- Table structure for course
--- ----------------------------
 DROP TABLE IF EXISTS `course`;
 CREATE TABLE `course`  (
   `course_id` bigint(18) NOT NULL AUTO_INCREMENT COMMENT 'incremental course id\r\n',
@@ -30,16 +28,10 @@ CREATE TABLE `course`  (
   INDEX `username`(`course_name`(191)) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1024859055654637579 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户表' ROW_FORMAT = DYNAMIC;
 
--- ----------------------------
--- Records of course
--- ----------------------------
 INSERT INTO `course` VALUES (1024859055654637575, 'Software Containerization', 'dr. I. Malavolta', 'This course covers the principles and practices of software containerization, including Docker and Kubernetes. Students will learn how to deploy, manage, and scale containerized applications in distributed environments.');
 INSERT INTO `course` VALUES (1024859055654637576, 'Distributed Systems', 'ir. J.J.R. Donkervliet MSc', 'In this course, students will explore the design, implementation, and operation of distributed systems. Topics include distributed algorithms, consensus protocols, fault tolerance, and scalability.');
 INSERT INTO `course` VALUES (1024859055654637577, 'Parallel Programming Practical', 'Dr. prof. dr. ir. H.E. Bal', 'This practical course focuses on parallel programming techniques for multi-core processors and distributed systems. Students will gain hands-on experience with parallel programming frameworks and tools.');
 
--- ----------------------------
--- Table structure for user
--- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`  (
   `id` bigint(18) NOT NULL AUTO_INCREMENT COMMENT 'incremental id\r\n',
@@ -52,9 +44,6 @@ CREATE TABLE `user`  (
   INDEX `username`(`vunetid`(191)) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1024859055654637575 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户表' ROW_FORMAT = DYNAMIC;
 
--- ----------------------------
--- Records of user
--- ----------------------------
 INSERT INTO `user` VALUES (1, 'yle215', '123456', NULL, 'y.lei2@student.vu.nl', 'Yitao Lei');
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -65,8 +65,8 @@ spec:
        protocol: TCP
        port: 3306
        targetPort: 3306
-       nodePort: 31306
-   type: NodePort
+       nodePort: 33306
+   type: LoadBalancer
    selector:
      app: mysql-fox
 

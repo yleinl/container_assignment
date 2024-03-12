@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: task-pv-volume
+  name: mysql-pv-volume
   labels:
     type: gce
 spec:
@@ -11,5 +11,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   gcePersistentDisk:
-      pdName: gke-cluster-standard-default-pool-eabf32d3-9tc0
+      pdName: mysql-volume
       fsType: ext4

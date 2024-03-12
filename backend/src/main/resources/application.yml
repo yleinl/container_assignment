@@ -1,10 +1,15 @@
 server:
   port: 8090
 spring:
+  server:
+    address: 0.0.0.0
   datasource:
-    url: jdbc:mysql://172.21.32.1:3306/container
+    url: jdbc:mysql://34.140.120.189:3306/container?serverTimezone=Europe/London&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
+    initialization-mode: always
+    type: org.apache.tomcat.jdbc.pool.DataSource
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:

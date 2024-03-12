@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: backend-deployment
 spec:
-  replicas: 3 # 根据您的需要修改副本数量
+  replicas: 1 # 根据您的需要修改副本数量
   selector:
     matchLabels:
       app: backend
@@ -15,6 +15,7 @@ spec:
       containers:
       - name: backend
         image: wujianchun123/backend:latest # 替换为您的后端 Docker 镜像
+        imagePullPolicy: Always
         ports:
         - containerPort: 8090
 

@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: frontend-deployment
 spec:
-  replicas: 3 # 根据您的需要修改副本数量
+  replicas: 1
   selector:
     matchLabels:
       app: frontend
@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: wujianchun123/frontend:latest # 替换为您的前端 Docker 镜像
+        image: wujianchun123/frontend:latest
+        ImagePullPolicy: Always
         ports:
         - containerPort: 80
 
