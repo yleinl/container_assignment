@@ -4,10 +4,10 @@ frontend:
   image:
     repository: wujianchun123/frontend
     tag: latest
-  replicas: 3
+  replicas: 1
 
 backend:
   image:
     repository: wujianchun123/backend
     tag: latest
-  replicas: 3
+  replicas: 1
