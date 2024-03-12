@@ -2,20 +2,12 @@
 
 frontend:
   image:
-    repository: your-frontend-image-repo
+    repository: wujianchun123/frontend
     tag: latest
-    pullPolicy: IfNotPresent
   replicas: 3
 
 backend:
   image:
-    repository: backend_image
+    repository: wujianchun123/backend
     tag: latest
-    pullPolicy: IfNotPresent
   replicas: 3
-
-ingress:
-  enabled: true
-  hosts:
-    - host: your-domain.com
-      paths: ["/"]

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-pv-volume
+  labels:
+    type: gce
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  gcePersistentDisk:
+  # Here need to create at the /vm/disk part in gcp
+      pdName: mysql-volume
+      fsType: ext4

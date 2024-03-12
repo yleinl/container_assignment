@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: backend-deployment
 spec:
   replicas: {{ .Values.backend.replicas }}
   selector:
@@ -14,9 +14,8 @@ spec:
     spec:
       containers:
       - name: backend
-        image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}"
+        image: {{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}
+        imagePullPolicy: Always
         ports:
-        - containerPort: 8080
-        env:
-        - name: DATABASE_URL
-          value: your-database-url
+        - containerPort: 8090
+
