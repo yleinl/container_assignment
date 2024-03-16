@@ -13,6 +13,10 @@ Then, go to the pod and init the database
 ```shell
 kubectl exec -it mysql-deploy-deployment-6cc787c55d-gt2nn -- /bin/bash
 ```
+Enter MySQL pod
+```shell
+mysql -u root -p
+```
 backend
 ```shell
  kubectl apply -f backend-deploy.yaml \
