@@ -15,6 +15,7 @@ spec:
       containers:
         - name: mysql-deploy
           image: mysql:8.0
+          command: ["mysql","-u","root","-p123456","&"]
           imagePullPolicy: IfNotPresent
           resources:
             requests:
