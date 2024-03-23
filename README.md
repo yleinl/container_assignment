@@ -9,7 +9,7 @@ The project is structured as follows:
 
 - `container.sql`: SQL of the database
 - `frontend/`: Contains Dockerfile and the project code of the front end.
-- `backend/`: Contains Dockerfile and the project code of the back end.
+- `backend/`: Contains Dockerfile and the project code of the back end. The backend includes the GET methods for get available courses or selected course and POST methods for login, registration, change password and so on. 
 - `deploy/`:
   - `tls/`: TLS certificates and related Kubernetes configurations.
   - `mysql/`: Contains Kubernetes YAML files for MySQL deployment, including configurations for persistent volumes, deployments, secrets, and config maps.
@@ -173,8 +173,5 @@ Then use the generated keys and cert to create the ca-secret.yaml. After that, w
   kubectl apply -f tls/ingress.yaml
   ```
 The IP used in the cluster-issuer.yaml should be changed to the IP of the ingress. To make the TLS available on your browser, you need to import the cert.
-
-
-After following these steps, your application services should be running and accessible as configured in your Kubernetes cluster and ingress settings.
 
 
