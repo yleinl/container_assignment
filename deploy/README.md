@@ -27,3 +27,16 @@ frontend
  kubectl apply -f frontend-deploy.yaml \
     -f frontend-service.yaml
 ```
+RBAC
+```shell
+ kubectl apply -f roleBasedAuthControl/clusterMaintainer.yaml \
+    -f roleBasedAuthControl/serviceMaintainer.yaml \
+    -f roleBasedAuthControl/viewer.yaml
+```
+
+NetworkPolicy
+```shell
+ kubectl apply -f networkControl/backegress.yaml \
+    -f networkControl/backend2db.yaml \
+    -f networkControl/front2back.yaml
+```
