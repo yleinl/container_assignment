@@ -4,7 +4,7 @@
 This project is designed to demonstrate the principles of software containerization. It includes a frontend, a backend, and a MySQL database, which are deployed using Docker containers managed by Kubernetes. Helm charts are used to simplify the deployment and management of the services.
 
 ## 1. Project Structure
-
+![Project Architecture](architecture.png)
 The project is structured as follows:
 
 - `container.sql`: SQL of the database
