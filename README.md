@@ -174,4 +174,13 @@ Then use the generated keys and cert to create the ca-secret.yaml. After that, w
   ```
 The IP used in the cluster-issuer.yaml should be changed to the IP of the ingress. To make the TLS available on your browser, you need to import the cert.
 
+### 2.7 Role Based Authentication Control
+
+The yaml used here are in the folder of `deploy/roleBasedAuthControl/`, it's applied for rolebinding to control the service account R/W rights in cluser, node, pod layer.
+
+```shell
+ kubectl apply -f roleBasedAuthControl/clusterMaintainer.yaml \
+    -f roleBasedAuthControl/serviceMaintainer.yaml \
+    -f roleBasedAuthControl/viewer.yaml
+```
 
