@@ -7,13 +7,14 @@ This project is designed to demonstrate the principles of software containerizat
 
 The project is structured as follows:
 
-- `backend/`: Contains Dockerfile and other backend-related files.
-- `cert/`: TLS certificates and related Kubernetes configurations.
+- `container.sql`: SQL of the database
+- `frontend/`: Contains Dockerfile and the project code of the front end.
+- `backend/`: Contains Dockerfile and the project code of the back end.
 - `deploy/`:
+  - `tls/`: TLS certificates and related Kubernetes configurations.
   - `mysql/`: Contains Kubernetes YAML files for MySQL deployment, including configurations for persistent volumes, deployments, secrets, and config maps.
   - `networkControl/`: Includes Kubernetes network policies for regulating traffic between the services.
   - `roleBasedAuthControl/`: Holds Kubernetes role-based access control configurations, including roles and role bindings for different service accounts.
-- `frontend/`: Contains Dockerfile and other frontend-related files.
 - `helms/`:
   - `templates/`: Helm templates for Kubernetes resources.
   - `Chart.yaml`: A YAML file containing information about the helm chart.
@@ -77,6 +78,7 @@ Set up a MySQL database using Kubernetes for persistent data storage.
   mysql -u root -p
   ```
 
+  Then use the container.sql to create the database and tables
 ### 2.3 Deploying Backend and Frontend
 
 Deploy the backend and frontend services using Kubernetes.
