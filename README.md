@@ -109,47 +109,7 @@ Set up the necessary network controls for communication between services.
     -f deploy/networkControl/front2back.yaml
   ```
 
-
-### 2.5 Generate Certificates Signed by a Self-Made Certificate Authority
-
-All the procedures in this step happen in the `cert/` folder.
-
-- **Generate a Self-Made CA**
-
-    ```shell
-    openssl genrsa -out ca.key 2048
-    openssl req -new -key ca.key -out ca.csr
-    echo "subjectAltName=DNS:vegan.test,IP:127.0.0.1" > cert_extensions
-    openssl x509 -req -days 36500 -in ca.csr -signkey ca.key -extfile cert_extensions -out  ca.crt
-    ```
-
-- **Use OpenSSL to Generate a Self-Made Certificate**
-
-    ```shell
-    openssl genrsa -out server.key 2048 
-    openssl req -new -key server.key -out server.csr
-    openssl x509 -req -CA ca.crt -CAkey ca.key -CAcreateserial -sha256 -days 3650 -extfile  cert_extensions -in server.csr -out server.crt
-    ```
-
-Now we can see the server's key: `server.key` and the certificate: `server.crt`.
-They will be encoded into base64 format and stored in the secret, which will be mounted on the ingress.
-
-- **Start the Ingress Controller**
-
-Install the nginx ingress add-on for Minikube:
-
-```shell
-minikube addons enable ingress
-```
-
-To access the ingress, create a tunnel to expose the ingress's endpoint:
-
-```shell
-minikube tunnel
-```
-
-
-### 2.6 Using Helm for Deployment
+### 2.5 Using Helm for Deployment
 
 Helm charts are used to simplify the deployment of Kubernetes applications.
 
@@ -179,16 +139,30 @@ Helm charts are used to simplify the deployment of Kubernetes applications.
   helm list
   ```
 
-### 2.7 Securing the Application
+### 2.6 Securing the Application
+The yaml used here are in the folder of `deploy/tls/`
 
-Apply security configurations to protect sensitive information.
+  Firstly, we need to install the cert-manager
 
+```shell
+kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.3.1/cert-manager.yaml
+```
+
+  Then we use Openssl to generate the 
+  Apply security configurations to protect sensitive information.
+
+```shell
+openssl genrsa -out ca.key 2048
+openssl req -x509 -new -nodes -key ca.key -subj "/CN=My Own CA" -days 1024 -out ca.crt
+```
+
+Then use the generated keys and cert to create the ca-secret.yaml. After that, we can start deploying the tls. 
 - **TLS Certificates:**
 
   ```shell
-  kubectl apply -f cert/ca-secret.yaml \
-    -f cert/certificate.yaml \
-    -f cert/cluster-issuer.yaml
+  kubectl apply -f tls/ca-secret.yaml \
+    -f tls/certificate.yaml \
+    -f tls/cluster-issuer.yaml
   ```
 
 - **Ingress:**
@@ -196,8 +170,10 @@ Apply security configurations to protect sensitive information.
   Configure ingress to manage external access to the services within your cluster.
 
   ```shell
-  kubectl apply -f ingress.yaml
+  kubectl apply -f tls/ingress.yaml
   ```
+The IP used in the cluster-issuer.yaml should be changed to the IP of the ingress. To make the TLS available on your browser, you need to import the cert.
+
 
 After following these steps, your application services should be running and accessible as configured in your Kubernetes cluster and ingress settings.
 
